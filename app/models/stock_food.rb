@@ -1,0 +1,2 @@
+class StockFood < ApplicationRecord
+end
