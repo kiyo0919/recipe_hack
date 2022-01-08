@@ -13,19 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
- }
- 
- .notice {
-   color: green;
- }
-
-// エラーメッセ表示時、レイアウト崩れ防止
- .field_with_errors {
-  display: contents;
-}
-
