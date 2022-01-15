@@ -1,6 +1,19 @@
 <div class="container">
   <div class="row">
-    <h1>Public::Homes#top</h1>
-    <p>Find me in app/views/public/homes/top.html.erb</p>
+    <% @recipes.each do |recipe| %>
+      <%= recipe.title %>
+      <%= image_tag recipe.image, size: "100x100" %>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>
+        <%= ingredient.quantity %>
+      <% end %>
+      <% recipe.steps.each do |step| %>
+        <%= step.step %>
+        <% if step.step_image.present? %>
+          <%= image_tag step.step_image, size: "50x50" %>
+          <%= step.description %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
