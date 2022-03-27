@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @user.get_profile_image(150,150), class: "rounded-circle" %>
+    </div>
+    <div class="col-md-5 offset-md-1">
+      <h4><strong><%= @user.nick_name %></strong></h4>
+      <% if @user == current_user %>
+        <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-secondary btn-sm"%>
+        <%= link_to "ストック食品一覧",  user_stock_foods_path(@user), class: "btn btn-secondary btn-sm"%>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-canter">
+    <div class="col-md-12">
+      <div class="row">
+        <% @recipes.each do |recipe| %>
+          <div class="col-md-4">
+            <%= link_to recipe_path(recipe) do %>
+              <%= image_tag recipe.image, size: "293x293" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
