@@ -8,8 +8,9 @@ class Public::RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user
+    @recipe.user_id = current_user.id
     if @recipe.save
+      flash[:notice] = ".レシピを登録しました"
       redirect_to root_path
     else
       render :new
