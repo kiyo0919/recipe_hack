@@ -18,6 +18,7 @@ scope module: :public do
   root to: 'homes#top'
   get '/about' => 'homes#about', as: 'about'
   resources :recipes
+  resources :stock_foods, only: [:create, :destroy]
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
