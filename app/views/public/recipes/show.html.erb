@@ -1,2 +1,6 @@
 レシピ詳細画面
 <%= @recipe.title %>
+<%= image_tag @recipe.image, size: "100x100" %>
+<div class="table_favorites<%= @recipe.id %>">
+  <%= render "public/favorites/favorite_btn", recipe:@recipe %>
+</div>

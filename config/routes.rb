@@ -17,8 +17,10 @@ end
 scope module: :public do
   root to: 'homes#top'
   get '/about' => 'homes#about', as: 'about'
-  resources :recipes
-  resources :users, only: [:show, :edit, :update] do
+  resources :recipes do
+    resource :favorites, only: [:create, :destroy]
+  end
+  resources :users, only: [:show, :index, :edit, :update] do
     resources :stock_foods, only: [:index, :create, :destroy]
   end
 end
