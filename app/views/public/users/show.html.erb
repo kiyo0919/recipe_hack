@@ -9,6 +9,21 @@
         <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-secondary btn-sm"%>
         <%= link_to "ストック食品一覧",  user_stock_foods_path(@user), class: "btn btn-secondary btn-sm"%>
       <% end %>
+      <div class="follow">
+        <%= link_to user_followings_path(@user) do %>
+          <%= @user.followings.count %>人
+        <% end %>
+        <%= link_to user_followers_path(@user) do %>
+          <%= @user.followers.count %>人
+        <% end %>
+        <% unless @user == current_user %>
+          <% if current_user.following?(@user) %>
+            <%= link_to "フォローを外す", user_relationships_path(@user), method: :delete, class: "btn btn-secondary btn-sm" %>
+          <% else %>
+            <%= link_to "フォローする", user_relationships_path(@user), method: :post, class: "btn btn-info btn-sm" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="row justify-content-canter">
