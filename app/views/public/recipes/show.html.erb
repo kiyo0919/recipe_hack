@@ -4,3 +4,12 @@
 <div class="table_favorites<%= @recipe.id %>">
   <%= render "public/favorites/favorite_btn", recipe:@recipe %>
 </div>
+<div class="comment_form">
+  <%= form_with model: [@recipe, @recipe_comment], local:false do |f| %>
+    <%= f.text_area :comment, placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+<div class="comments_table">
+  <%= render "public/recipe_comments/table_comment", recipe_comments: @recipe.recipe_comments %>
+</div>
