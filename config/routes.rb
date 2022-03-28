@@ -19,6 +19,7 @@ scope module: :public do
   get '/about' => 'homes#about', as: 'about'
   resources :recipes do
     resource :favorites, only: [:create, :destroy]
+    resources :recipe_comments, only: [:create, :destroy]
   end
   resources :users, only: [:show, :index, :edit, :update] do
     resources :stock_foods, only: [:index, :create, :destroy]
