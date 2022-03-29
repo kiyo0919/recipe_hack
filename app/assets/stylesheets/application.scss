@@ -14,8 +14,24 @@
  *= require_self
  */
 
+ html {
+  font-size: 62.5%;
+  }
+
+  h1{
+    font-size: 5rem;
+    }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  li {
+    font-size: 1.5rem;
+  }
+
  body {
-  background-color: #f9f9f9;
+  background-color: #efeff0;
  }
 
  * {
@@ -24,6 +40,14 @@
   box-sizing: border-box;
  }
 
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
 
  .notice {
    color: green;
@@ -34,4 +58,81 @@
   display: contents;
 }
 
+.brand-logo {
+  font-family: 'Caveat', cursive;
+  font-size: 6rem;
+}
 
+// トップ画面
+.top {
+  background: linear-gradient(to bottom, #efeff0 0%, #efeff0 40%, #cbd2c6 50%, #cbd2c6 100%);
+}
+
+.title {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.title h1 {
+  font-family: 'Caveat', cursive;
+  font-size: 7rem;
+}
+
+.top-under .recipes {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipes img {
+  padding: 10px;
+  height: 200px;
+  width: 200px;
+}
+
+// レシピ詳細画面
+
+.recipe-about {
+  border: 2px solid #d9d7dd;
+  border-radius: 10px;
+  margin: 1rem;
+  position: absolute;
+  h2 {
+    margin: 1rem;
+  }
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+}
+
+.recipe-detail {
+  margin: 30px;
+}
+
+.recipe-detail .table {
+  font-size: 1.2rem;
+}
+
+.recipe-steps {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.recipe-step {
+  width: 130px;
+  margin: 10px;
+ p {
+  font-size: 1.6rem;
+}
+}
+
+.comment_form {
+  margin: 10px;
+}

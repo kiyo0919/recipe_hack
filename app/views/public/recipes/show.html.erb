@@ -1,15 +1,63 @@
-レシピ詳細画面
-<%= @recipe.title %>
-<%= image_tag @recipe.image, size: "100x100" %>
-<div class="table_favorites<%= @recipe.id %>">
-  <%= render "public/favorites/favorite_btn", recipe:@recipe %>
-</div>
-<div class="comment_form">
-  <%= form_with model: [@recipe, @recipe_comment], local:false do |f| %>
-    <%= f.text_area :comment, placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</div>
-<div class="comments_table">
-  <%= render "public/recipe_comments/table_comment", recipe_comments: @recipe.recipe_comments %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="recipe-about">
+        <div class="row">
+          <div class="col-md-8">
+            <h2><%= @recipe.title %></h2>
+          </div>
+          <div class="col-md-4">
+              <div class="favorite-btn">
+              <div class="table_favorites<%= @recipe.id %>">
+                <%= render "public/favorites/favorite_btn", recipe:@recipe %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-detail">
+          <div class="row">
+            <div class="col-md-6">
+              <%= image_tag @recipe.image, size: "200x200"%>
+              <p><%= @recipe.catch_phrase %></p>
+            </div>
+            <div class="col-md-6">
+              <table class="table">
+                <tbody>
+                  <% @recipe.ingredients.each do |ingredient| %>
+                  <tr>
+                    <td><%= ingredient.name %></td>
+                    <td><%= ingredient.quantity %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-steps">
+          <% @recipe.steps.each do |step| %>
+            <div class="recipe-step">
+              <%= step.step %>
+              <p><%= step.description %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="comment_form">
+        <%= form_with model: [@recipe, @recipe_comment], local:false do |f| %>
+          <div class="form-group row">
+            <%= f.text_area :comment, placeholder: "コメントをここに", class:"form-control form-control-lg col-md-6" %>
+          </div>
+          <div class="form-group row">
+            <%= f.submit "送信する", class:"col-md-2 btn btn-secondary btn-sm" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="comments_table">
+        <%= render "public/recipe_comments/table_comment", recipe_comments: @recipe.recipe_comments %>
+      </div>
+    </div>
+  </div>
 </div>

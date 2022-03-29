@@ -2,6 +2,7 @@
   <tbody>
     <% recipe_comments.each do |recipe_comment| %>
       <tr>
+        <td><%= image_tag recipe_comment.user.get_profile_image(30,30), class: "rounded-circle" %></td>
         <td><%= recipe_comment.user.nick_name %></td>
         <td><%= recipe_comment.comment %></td>
         <td>

@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
-    @recipes = Recipe.all
+    @recipes = Recipe.order("RANDOM()").limit(4)
   end
 
   def about
