@@ -22,6 +22,7 @@
             </div>
             <div class="col-md-6">
               <table class="table">
+                <p><%= @recipe.number_of_persons %></p>
                 <tbody>
                   <% @recipe.ingredients.each do |ingredient| %>
                   <tr>
@@ -38,6 +39,9 @@
           <% @recipe.steps.each do |step| %>
             <div class="recipe-step">
               <%= step.step %>
+              <% if step.step_image.attached? %>
+                <%= image_tag step.step_image, size: "130x90" %>
+              <% end %>
               <p><%= step.description %></p>
             </div>
           <% end %>
