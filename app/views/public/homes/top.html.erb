@@ -1,2 +1,17 @@
-トップ画面
-インスタ風レシピ画像を載せる
+<div class="top">
+  <div class="top-up">
+    <div class="title">
+      <h1>Recipe Hack</h1>
+      <p>ちょっとした紹介</p>
+    </div>
+  </div>
+  <div class="top-under">
+    <div class="recipes">
+      <% @recipes.each do |recipe| %>
+        <%= link_to recipe_path(recipe) do %>
+          <%= image_tag recipe.image %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -16,13 +16,13 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar">
         <div class="container">
           <%= link_to root_path, class: "navbar-brand" do %>
-            <div>RecipeHack</div>
+            <div class="brand-logo"><h1>RecipeHack</h1></div>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars fa-2x"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <% if user_signed_in? %>
@@ -84,10 +84,14 @@
         </div>
       </nav>
     </header>
+    <main>
+      <% flash.each do |key, value| %>
+      <%=  content_tag(:p, value, class: key) %>
+    <% end %>
+      <%= yield %>
+    </main>
+    <footer>
 
-       <% flash.each do |key, value| %>
-        <%=  content_tag(:p, value, class: key) %>
-      <% end %>
-    <%= yield %>
+    </footer>
   </body>
 </html>

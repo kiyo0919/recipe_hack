@@ -16,7 +16,7 @@ class Public::RecipesController < ApplicationController
     @recipe.user_id = current_user.id
     if @recipe.save
       flash[:notice] = "レシピを登録しました"
-      redirect_to root_path
+      redirect_to recipe_path(@recipe)
     else
       render :new
     end
