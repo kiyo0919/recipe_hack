@@ -123,6 +123,9 @@ a:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  img {
+    margin: 1rem;
+  }
 }
 
 .recipe-step {
