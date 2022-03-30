@@ -6,6 +6,10 @@ class Public::RecipesController < ApplicationController
     @steps = @recipe.steps.build
   end
 
+  def index
+    @recipes = Recipe.all
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
     @recipe_comment = RecipeComment.new

@@ -99,13 +99,13 @@ a:hover {
   border: 2px solid #d9d7dd;
   border-radius: 10px;
   margin: 1rem;
-  position: absolute;
+  position: relative;
   h2 {
     margin: 1rem;
   }
 }
 
-.favorite-btn {
+.recipe-about .favorite-btn {
   position: absolute;
   top: 1rem;
   right: 3rem;
@@ -139,3 +139,41 @@ a:hover {
 .comment_form {
   margin: 10px;
 }
+
+// レシピ一覧画面
+
+.recipe-list {
+  border: 1px solid #AEACAC;
+  border-radius: 5px;
+  margin: 1.5rem;
+  padding-bottom: 1rem;
+  background-color: white;
+}
+
+.recipe-list .favorite-btn {
+  margin-left: 1rem;
+  display: flex;
+}
+
+.recipe-title {
+  margin-left: 1rem;
+}
+
+.recipe-image img {
+  height: 60rem;
+  width: 100%;
+}
+
+.recipe-user {
+  padding: 1rem;
+
+  span {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+  }
+}
+
+.recipe-image {
+  margin-bottom: 1rem;
+}
+
