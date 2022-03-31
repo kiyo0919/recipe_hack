@@ -10,6 +10,10 @@
             <%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, {class: "col-md-3 form-control"} %>
           </div>
           <div class="form-group row">
+            <%= f.label "タグ (,で区切ると複数タグ登録できます)", class: "col-md-3 col-form-label font-weight-bold text-right" %>
+            <%= f.text_field :name, value: @tag_list, class: "col-md-2 form-control" %>
+          </div>
+          <div class="form-group row">
             <%= f.label "キャッチコピー", class: "col-md-2 col-form-label font-weight-bold text-right" %>
             <%= f.text_area :catch_phrase, placeholder: "60字以内", autocomplete: 'off', class: "col-md-3 form-control"  %>
             <%= f.label "画像選択", class: "col-md-2 col-form-label font-weight-bold text-right" %>
