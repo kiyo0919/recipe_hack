@@ -46,6 +46,11 @@
             </div>
           <% end %>
         </div>
+        <div class="recipe-tag">
+          <% @recipe.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-md-5">

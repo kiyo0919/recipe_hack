@@ -2,6 +2,7 @@ class Public::RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    # @tag_list = @recipe.tags.pluck(:name).join(',')
     @ingredients = @recipe.ingredients.build
     @steps = @recipe.steps.build
   end
@@ -18,7 +19,9 @@ class Public::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
+    tag_list = params[:recipe][:name].split(',')
     if @recipe.save
+      @recipe.save_tag(tag_list)
       flash[:notice] = "レシピを登録しました"
       redirect_to recipe_path(@recipe)
     else

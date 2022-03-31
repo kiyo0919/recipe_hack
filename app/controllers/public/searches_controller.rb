@@ -5,8 +5,8 @@ class Public::SearchesController < ApplicationController
       @recipes = Recipe.where('title LIKE ?', '%'+@word+'%')
       if Ingredient.where(name: @word).exists?
         ingredients = Ingredient.where(name: @word)
-        include_ingredients_recipe = Recipe.where(ingredients: ingredients)
-        @recipes += include_ingredients_recipe
+        include_ingredients_recipes = Recipe.where(ingredients: ingredients)
+        @recipes += include_ingredients_recipes
       end
     elsif User.where('nick_name LIKE ?', '%'+@word+'%').exists?
       @users = User.where('nick_name LIKE ?', '%'+@word+'%')
