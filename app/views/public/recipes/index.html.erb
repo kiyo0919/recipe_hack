@@ -25,5 +25,17 @@
         </div>
       <% end %>
     </div>
+    <div class="col-md-4 offset-md-1">
+      <%= form_with url: searches_path, method: :get do |f| %>
+        <div class="form-group row">
+          <div class="form-group m-1">
+            <%= f.text_field :word %>
+          </div>
+          <div class="form-gtoup m-1">
+            <%= f.submit "検索" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
