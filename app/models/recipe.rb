@@ -22,5 +22,9 @@ class Recipe < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def search_for(word)
+    
+  end
+
 
 end

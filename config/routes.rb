@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'searches/search'
+  end
   # URL /customers/sign_in ...
 devise_for :users,skip: [:passwords,], controllers: {
   registrations: "public/registrations",
@@ -27,6 +30,7 @@ scope module: :public do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
+  get 'searches' => 'searches#search', as: 'searches'
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
