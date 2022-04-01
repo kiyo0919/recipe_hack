@@ -31,6 +31,7 @@ scope module: :public do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
   get 'searches' => 'searches#search', as: 'searches'
+  get 'tag_searches' => 'searches#tag_search', as: 'tag_searches'
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

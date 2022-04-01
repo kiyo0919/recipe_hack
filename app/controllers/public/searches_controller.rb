@@ -12,4 +12,11 @@ class Public::SearchesController < ApplicationController
       @users = User.where('nick_name LIKE ?', '%'+@word+'%')
     end
   end
+
+  def tag_search
+    if Tag.find(params[:tag_id])
+      @tag = Tag.find(params[:tag_id])
+      @recipes = @tag.recipes
+    end
+  end
 end

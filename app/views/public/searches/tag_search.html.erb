@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <h3>検索結果：<strong><%= @word %></strong></h3>
-      <% if Recipe.where('title LIKE ?', '%'+@word+'%').exists? or Ingredient.where(name: @word).exists? %>
+      <h3>タグ検索結果：<strong><%= @tag.name %></strong></h3>
+      <% if Tag.find(params[:tag_id]) %>
         <% @recipes.each do |recipe| %>
           <div class="recipe-list">
             <%= link_to user_path(recipe.user) do %>
@@ -26,27 +26,6 @@
             </div>
           </div>
         <% end %>
-      <% elsif User.where('nick_name LIKE ?', '%'+@word+'%').exists? %>
-        <table class="table">
-          <tbody>
-            <% @users.each do |user| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(user) do %>
-                    <%= image_tag user.get_profile_image(40,40), class: "rounded-circle" %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to user_path(user) do %>
-                    <%= user.nick_name %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% elsif Tag.find(params[:word]) %>
-      <h1>fff</h1>
       <% else %>
         <h4>検索結果が見つかりません</h4>
       <% end %>
