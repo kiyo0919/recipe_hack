@@ -1,56 +1,73 @@
 <div class="container">
+<h3>キーワード検索結果：<strong><%= @word %></strong></h3>
   <div class="row">
-    <div class="col-md-7">
-      <h3>検索結果：<strong><%= @word %></strong></h3>
       <% if Recipe.where('title LIKE ?', '%'+@word+'%').exists? or Ingredient.where(name: @word).exists? %>
-        <% @recipes.each do |recipe| %>
-          <div class="recipe-list">
-            <%= link_to user_path(recipe.user) do %>
-              <div class="recipe-user">
-                <%= image_tag recipe.user.get_profile_image(40,40), class: "rounded-circle" %>
-                <span><%= recipe.user.nick_name %></span>
+        <div class="col-md-6">
+          <% @recipes.each do |recipe| %>
+            <div class="recipe-list">
+              <%= link_to user_path(recipe.user) do %>
+                <div class="recipe-user">
+                  <%= image_tag recipe.user.get_profile_image(40,40), class: "rounded-circle" %>
+                  <span><%= recipe.user.nick_name %></span>
+                </div>
+              <% end %>
+              <%= link_to recipe_path(recipe) do %>
+                <div class="recipe-image">
+                  <%= image_tag recipe.image %>
+                </div>
+              <% end %>
+              <div class="favorite-btn">
+                <div class="table_favorites<%= recipe.id %>">
+                  <%= render "public/favorites/favorite_btn", recipe:recipe %>
+                </div>
+                <div class="recipe-title">
+                  <h3><%= recipe.title %></h3>
+                </div>
               </div>
-            <% end %>
-            <%= link_to recipe_path(recipe) do %>
-              <div class="recipe-image">
-                <%= image_tag recipe.image %>
-              </div>
-            <% end %>
-            <div class="favorite-btn">
-              <div class="table_favorites<%= recipe.id %>">
-                <%= render "public/favorites/favorite_btn", recipe:recipe %>
-              </div>
-              <div class="recipe-title">
-                <h3><%= recipe.title %></h3>
-              </div>
+            </div>
+          <% end %>
+        </div>
+      <% elsif User.where('nick_name LIKE ?', '%'+@word+'%').exists? %>
+        <div class="col-md-7">
+          <table class="table">
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <%= link_to user_path(user) do %>
+                      <%= image_tag user.get_profile_image(40,40), class: "rounded-circle" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to user_path(user) do %>
+                      <%= user.nick_name %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <h4>検索結果が見つかりません</h4>
+        <h3>レシピを検索する</h3>
+        <%= form_with url: searches_path, method: :get do |f| %>
+          <div class="form-group row">
+              <%= f.text_field :word, size: "50" %>
+            <%= f.submit "検索", class:"col-md-2 ml-2" %>
+          </div>
+          <div class="form-group row">
+            <div class="custom-control custom-radio custom-control-inline">
+              <%= f.radio_button :search_method, 0, checked: true, class:"mr-3" %>
+              <%= f.label :search_method, "全て" %>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline ml-3">
+              <%= f.radio_button :search_method, 1, class:"mr-3" %>
+              <%= f.label :search_method, "自分のレシピから探す" %>
             </div>
           </div>
         <% end %>
-      <% elsif User.where('nick_name LIKE ?', '%'+@word+'%').exists? %>
-        <table class="table">
-          <tbody>
-            <% @users.each do |user| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(user) do %>
-                    <%= image_tag user.get_profile_image(40,40), class: "rounded-circle" %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to user_path(user) do %>
-                    <%= user.nick_name %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <% elsif Tag.find(params[:word]) %>
-      <h1>fff</h1>
-      <% else %>
-        <h4>検索結果が見つかりません</h4>
       <% end %>
-    </div>
   </div>
 </div>
 

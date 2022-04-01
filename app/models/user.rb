@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :recipes, dependent: :destroy
+  has_many :ingredients, through: :recipes #ユーザーが持つレシピの材料をuser.ingredientsで参照できるようにする
   has_many :stock_foods, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :recipe_comments, dependent: :destroy
