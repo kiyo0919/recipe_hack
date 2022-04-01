@@ -49,7 +49,9 @@
         <div class="recipe-tag">
           <i class="fas fa-tags fa-2x ml-3 mr-3"></i>
           <% @recipe.tags.each do |tag| %>
-            <p><%= tag.name %></p>
+            <%= link_to tag_searches_path(tag_id: tag.id) do %>
+              <p><%= tag.name %></p>
+            <% end %>
           <% end %>
         </div>
       </div>
