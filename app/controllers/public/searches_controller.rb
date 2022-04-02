@@ -16,6 +16,9 @@ class Public::SearchesController < ApplicationController
         end
       elsif User.where('nick_name LIKE ?', '%'+@word+'%').exists?
         @users = User.where('nick_name LIKE ?', '%'+@word+'%')
+      else
+        flash[:alert] = "検索結果が見つかりませんでした"
+        redirect_to recipes_path
       end
     elsif search_method == "1"
       if current_user.recipes.where('title LIKE ?', '%'+@word+'%').exists? or Ingredient.where(name: @word).exists?
@@ -23,7 +26,11 @@ class Public::SearchesController < ApplicationController
         if current_user.ingredients.where(name: @word).exists?
           ingredients = current_user.ingredients.where(name: @word)
           include_ingredients_current_user_recipes = current_user.recipes.where(ingredients: ingredients)
-          @recipes += include_ingredients_current_user_recipes
+          @recipes = include_ingredients_current_user_recipes
+          if Recipe.where(title: @word)
+            recipe = Recipe.where(title: @word)
+            @recipes += recipe
+          end
         end
       else
         flash[:alert] = "検索結果が見つかりませんでした"
@@ -39,3 +46,4 @@ class Public::SearchesController < ApplicationController
     end
   end
 end
+
