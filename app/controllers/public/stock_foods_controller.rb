@@ -9,6 +9,10 @@ class Public::StockFoodsController < ApplicationController
     else
       redirect_to user_path(@user)
     end
+    @notifications = current_user.notifications
+    @notifications.where(is_checked: false).each do |notification|
+      notification.update(is_checked: true)
+    end
   end
 
   def create

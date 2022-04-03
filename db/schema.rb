@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_130648) do
+ActiveRecord::Schema.define(version: 2022_04_03_133640) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,17 @@ ActiveRecord::Schema.define(version: 2022_03_31_130648) do
     t.string "quantity", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "stock_food_id", null: false
+    t.integer "action"
+    t.boolean "is_checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stock_food_id"], name: "index_notifications_on_stock_food_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "recipe_comments", force: :cascade do |t|
@@ -156,6 +167,8 @@ ActiveRecord::Schema.define(version: 2022_03_31_130648) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "notifications", "stock_foods"
+  add_foreign_key "notifications", "users"
   add_foreign_key "recipe_tags", "recipes"
   add_foreign_key "recipe_tags", "tags"
 end
