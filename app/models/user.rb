@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :stock_foods, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :recipe_comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   has_one_attached :profile_image
 

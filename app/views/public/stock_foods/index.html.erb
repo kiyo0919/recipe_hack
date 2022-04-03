@@ -22,6 +22,7 @@
           <tr>
             <td><strong>ストック食品</strong></td>
             <td><strong>消費期限</strong></td>
+            <td></td>
           </tr>
       </thead>
       <tbody>
@@ -29,6 +30,13 @@
         <tr>
           <td><%= stock_food.name %></td>
           <td><%= stock_food.expiration_date %></td>
+          <td>
+            <% if stock_food.notification.action == "expired" %>
+              期限切れ
+            <% elsif stock_food.notification.action == "warning" %>
+              もうすぐ切れます
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>
