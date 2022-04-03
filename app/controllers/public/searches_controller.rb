@@ -27,8 +27,8 @@ class Public::SearchesController < ApplicationController
           ingredients = current_user.ingredients.where(name: @word)
           include_ingredients_current_user_recipes = current_user.recipes.where(ingredients: ingredients)
           @recipes = include_ingredients_current_user_recipes
-          if Recipe.where(title: @word)
-            recipe = Recipe.where(title: @word)
+          if current_user.recipes.where(title: @word)
+            recipe = current_user.recipes.where(title: @word)
             @recipes += recipe
           end
         end
