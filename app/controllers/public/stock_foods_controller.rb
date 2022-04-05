@@ -28,7 +28,14 @@ class Public::StockFoodsController < ApplicationController
   end
 
   def destroy
-
+    @stock_food = StockFood.find(params[:id])
+    if @stock_food.user == current_user
+      flash[:notice] = "ストック食材を削除しました"
+      @stock_food.destroy
+      redirect_to user_stock_foods_path(@stock_food.user)
+    else
+      redirect_to user_path(@stock_food.user)
+    end
   end
 
   private

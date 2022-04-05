@@ -8,6 +8,9 @@
       <% if @user == current_user %>
         <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-secondary btn-sm"%>
         <%= link_to "ストック食品一覧",  user_stock_foods_path(@user), class: "btn btn-secondary btn-sm"%>
+        <% if @user.notifications.where(action: "warning").exists? || @user.notifications.where(action: "expired").exists? %>
+          <span class="material-icons">notifications_active</span>
+        <% end %>
       <% end %>
       <div class="follow">
         <%= link_to user_followings_path(@user) do %>
