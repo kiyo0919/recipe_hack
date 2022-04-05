@@ -38,6 +38,9 @@
               期限切れ
             <% end %>
           </td>
+          <td>
+            <%= link_to "Destroy", user_stock_food_path(stock_food.user, stock_food), method: :delete, 'data-confirm' => "本当に消しますか？", class: "btn btn-sm btn-danger" %>
+          </td>
         </tr>
         <% end %>
       </tbody>
