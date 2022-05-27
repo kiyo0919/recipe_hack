@@ -49,6 +49,10 @@ a:hover {
   color: black;
 }
 
+input, textarea{
+  outline: none;
+}
+
  .notice {
    color: green;
  }
@@ -65,6 +69,111 @@ a:hover {
 .brand-logo {
   font-family: 'Caveat', cursive;
   font-size: 6rem;
+}
+
+// サインアップ画面
+.sign-up {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 4rem auto;
+  width: 85rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #F9F9FA;
+
+  h2 {
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin: 2rem 0;
+  }
+  .sign-table {
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+  }
+  .table-head, .table-body, .table-head-last-name, .table-head-first-name, .table-body-last-name, .table-body-first-name {
+    font-size: 1.5rem;
+    padding: 1.2rem;
+  }
+
+
+  input#user_last_name, input#user_first_name, input#user_last_name_kana, input#user_first_name_kana {
+    width: 15rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #F9F9FA;
+  }
+
+  input {
+    width: 24rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #F9F9FA;
+  }
+
+  .sign-btn {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #60AB9A;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    margin: 3rem 0 0 25rem;
+    font-size: 1.6rem;
+    border-radius: 100vh;
+    border: none;
+  }
+}
+// ログイン画面
+.sign {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 4rem auto;
+  width: 40rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #F9F9FA;
+  h2 {
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin: 2rem 0;
+  }
+  .sign-table {
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+  }
+  .table-head, .table-body {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .table-head {
+    width: 30%;
+  }
+  .table-body {
+    width: 70%;
+  }
+  input {
+    width: 20rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #F9F9FA;
+  }
+
+  .sign-btn {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #60AB9A;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    margin: 3rem auto;
+    font-size: 1.6rem;
+    border-radius: 100vh;
+    border: none;
+  }
 }
 
 // トップ画面
