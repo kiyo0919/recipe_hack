@@ -26,9 +26,6 @@
     font-size: 1.2rem;
   }
 
-  li {
-    font-size: 1.5rem;
-  }
 
  body {
   background-color: #efeff0;
@@ -65,6 +62,39 @@ input, textarea{
  .field_with_errors {
   display: contents;
 }
+// エラーメッセ
+#error_explanation {
+  margin: 2rem auto;
+  width: 60%;
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+    ul {
+      list-style: none;
+      font-size: 1.3rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+}
+
+.error {
+  margin: 2rem auto;
+  width: 60%;
+  font-size: 1.2rem;
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+    ul {
+      list-style: none;
+    }
+}
+
+
 
 .brand-logo {
   font-family: 'Caveat', cursive;

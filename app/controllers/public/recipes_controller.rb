@@ -2,6 +2,7 @@ class Public::RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @genres = Genre.all
     # @tag_list = @recipe.tags.pluck(:name).join(',')
     @ingredients = @recipe.ingredients.build
     @steps = @recipe.steps.build
@@ -25,6 +26,7 @@ class Public::RecipesController < ApplicationController
       flash[:notice] = "レシピを登録しました"
       redirect_to recipe_path(@recipe)
     else
+      @genres = Genre.all
       render :new
     end
   end

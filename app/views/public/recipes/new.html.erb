@@ -3,11 +3,12 @@
     <div class="col-md-11 offset-md-1">
       <div class="new-recipe">
         <%= form_with model: @recipe, local: true do |f| %>
+          <%= render "layouts/error_messages", model: @recipe %>
           <div class="form-group row">
             <%= f.label "レシピのタイトル", class: "col-md-2 col-form-label font-weight-bold text-right" %>
             <%= f.text_field :title,  placeholder: "例:だし巻き卵", autocomplete: 'off', class: "col-md-3 form-control" %>
             <%= f.label :genre_id, "ジャンル",  class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, {class: "col-md-3 form-control"} %>
+            <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "選択してください"}, {class: "col-md-3 form-control"} %>
           </div>
           <div class="form-group row">
             <%= f.label "タグ (,で区切ると複数タグ登録できます)", class: "col-md-3 col-form-label font-weight-bold text-right" %>

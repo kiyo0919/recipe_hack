@@ -2,7 +2,6 @@
   <h2>ログイン</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <table class="sign-table">
-      <%= render "public/shared/error_messages", resource: resource %>
       <tr>
         <th class="table-head">メールアドレス</th>
         <td class="table-body">
