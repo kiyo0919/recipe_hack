@@ -206,6 +206,40 @@ input, textarea{
   width: 200px;
 }
 
+// 検索フォーム
+
+.search {
+  display: flex;
+  font-size: 1.2rem;
+  .search-form {
+    display: flex;
+  }
+  .radio-btn {
+    display: flex;
+    flex-flow: column;
+    margin-left: 1rem;
+  }
+  input#word {
+    width: 20rem;
+  }
+  p {
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin: 0.4rem 1rem 0 0;
+  }
+  .search-btn {
+    margin: 0.3rem 0 0 1rem;
+    width:50px;
+    height:20px;
+    border-radius:0 2px 2px 0;
+    background:#d2691e;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    font-size:1.2rem;
+  }
+}
+
 // レシピ詳細画面
 
 .recipe-about {
@@ -311,7 +345,6 @@ input, textarea{
     padding: 0 0.5rem;
   }
 }
-
 
 // 検索画面
 
