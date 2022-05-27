@@ -21,7 +21,7 @@ class Recipe < ApplicationRecord
       file_path = Rails.root.join("app/images/no_recipe_image.png")
       image.attach(io: File.open(file_path),filename: "default-image.jpg",content_type: "image/jpeg")
     end
-    image.variant(resize_to_limit: [width, height]).processed
+    image.variant(resize_to_fill: [width, height]).processed
   end
 
   def save_tag(sent_tags)

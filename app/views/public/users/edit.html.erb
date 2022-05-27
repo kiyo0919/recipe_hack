@@ -1,80 +1,70 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-10 mt-5">
-      <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "お名前", class: "col-md-2 col-form-label" %>
-          <%= f.label "(姓)", class: "col-md-1 col-form-label" %>
-          <div class="form-group col-md-4">
-            <%= f.text_field :last_name, autocomplete: 'off', placeholder: "山田", class: "form-control" %>
-          </div>
-          <%= f.label "(名)", class: "col-md-1 col-form-label" %>
-          <div class="form-group col-md-4">
-            <%= f.text_field :first_name, autocomplete: 'off', placeholder: "太郎", class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "フリガナ", class: "col-md-2 col-form-label" %>
-          <%= f.label "(セイ)", class: "col-md-1 col-form-label" %>
-          <div class="form-group col-md-4">
-            <%= f.text_field :last_name_kana, autocomplete: 'off', placeholder: "ヤマダ", class: "form-control" %>
-          </div>
-          <%= f.label "(メイ)", class: "col-md-1 col-form-label" %>
-          <div class="form-group col-md-4">
-            <%= f.text_field :first_name_kana, autocomplete: 'off', placeholder: "タロウ", class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "ニックネーム", class: "col-md-3 col-form-label"%>
-          <div class="form-group col-md-4">
-            <%= f.text_field :nick_name, autocomplete: 'off', placeholder: "他ユーザーに表示されます", class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "メールアドレス", class: "col-md-3 col-form-label"%>
-          <div class="form-group col-md-4">
-            <%= f.email_field :email, autocomplete: 'off', class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "郵便番号", class: "col-md-3 col-form-label"%>
-          <div class="form-group col-md-4">
-            <%= f.text_field :postal_code, autocomplete: 'off', class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "住所", class: "col-md-3 col-form-label"%>
-          <div class="form-group col-md-7">
-            <%= f.text_field :address, autocomplete: 'off', class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "電話番号", class: "col-md-3 col-form-label"%>
-          <div class="form-group col-md-4">
-            <%= f.text_field :phone_number, autocomplete: 'off', class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="form-group row font-weight-bold">
-          <%= f.label "生年月日", class: "col-md-3 col-form-label"%>
-          <div class="form-group col-md-4">
-            <%= f.date_select :birth_date, autocomplete: 'off', use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <%= f.submit "情報を更新する", class: "btn btn-primary btn-block" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<div class="sign-up">
+  <h2>会員情報編集</h2>
+  <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
+  <table class="sign-table">
+    <tr>
+      <th class="table-head-last-name">お名前  姓</th>
+      <td class="table-body-last-name">
+        <%= f.text_field :last_name, autocomplete: 'off', placeholder: "  山田" %>
+      </td>
+      <th class="table-head-first-name">名</th>
+      <td class="table-body-first-name">
+        <%= f.text_field :first_name, autocomplete: 'off', placeholder: "  太郎" %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head-last-name">フリガナ  セイ</th>
+      <td class="table-body-last-name">
+        <%= f.text_field :last_name_kana, autocomplete: 'off', placeholder: "  山田" %>
+      </td>
+      <th class="table-head-first-name">メイ</th>
+      <td class="table-body-first-name">
+        <%= f.text_field :first_name_kana, autocomplete: 'off', placeholder: "  太郎" %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">ニックネーム</th>
+      <td class="table-body">
+          <%= f.text_field :nick_name, autocomplete: 'off', placeholder: "  他ユーザーに表示されます" %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">プロフィール画像</th>
+      <td class="table-body">
+         <%= f.file_field :profile_image, accept: "image/*"%>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">メールアドレス</th>
+      <td class="table-body">
+        <%= f.email_field :email, autocomplete: "email", autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">郵便番号</th>
+      <td class="table-body">
+        <%= f.text_field :postal_code, autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">住所</th>
+      <td class="table-body">
+        <%= f.text_field :address, autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">電話番号</th>
+      <td class="table-body">
+        <%= f.text_field :phone_number, autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">生年月日</th>
+      <td class="table-body">
+        <%= f.date_select :birth_date, autocomplete: 'off', use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
+      </td>
+    </tr>
+    <td colspan="2"><%= f.submit "編集を保存する", class:"sign-btn" %></td>
+  </table>
+  <% end %>
 </div>
