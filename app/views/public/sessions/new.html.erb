@@ -1,26 +1,21 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+<div class="sign">
+  <h2>ログイン</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <table class="sign-table">
+      <%= render "public/shared/error_messages", resource: resource %>
+      <tr>
+        <th class="table-head">メールアドレス</th>
+        <td class="table-body">
+          <%= f.email_field :email, autocomplete: "email", autocomplete: 'off' %>
+        </td>
+      </tr>
+      <tr>
+        <th class="table-head">パスワード</th>
+        <td class="table-body">
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </td>
+      </tr>
+      <td colspan="2"><%= f.submit "ログインする", class:"sign-btn" %></td>
+  </table>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
