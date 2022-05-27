@@ -12,6 +12,13 @@ class Recipe < ApplicationRecord
 
   has_one_attached :image
 
+  with_options presence: true do
+    validates :title
+    validates :catch_phrase
+  end
+
+  validates :title,  length: { maximum: 17 }
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

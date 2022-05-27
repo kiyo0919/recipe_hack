@@ -18,6 +18,19 @@ class User < ApplicationRecord
   has_many :followings, through: :follower, source: :followed # 自分がフォローしている人,  フォローする人(follower)は中間テーブル(Relationshipのfollower)を通じて(through)、フォローされる人(followed)と紐づく
   has_many :followers, through: :followed, source: :follower # 自分をフォローしている人(自分がフォローされている人),  フォローされる人(followed) は中間テーブル(Relationshipのfollowed)を通じて(through)、 フォローする人(follower) と紐づく
 
+
+  with_options presence: true do
+    validates :last_name
+    validates :first_name
+    validates :last_name_kana
+    validates :first_name_kana
+    validates :nick_name
+    validates :postal_code
+    validates :address
+    validates :phone_number
+    validates :birth_date
+  end
+
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
