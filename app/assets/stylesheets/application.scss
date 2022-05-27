@@ -267,41 +267,51 @@ input, textarea{
 }
 
 // レシピ一覧画面
-
-.recipe-list {
-  border: 1px solid #AEACAC;
-  border-radius: 5px;
-  margin: 1.5rem;
-  padding-bottom: 1rem;
-  background-color: white;
-}
-
-.recipe-list .favorite-btn {
-  margin-left: 1rem;
+.recipe-index {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
 }
 
-.recipe-title {
-  margin-left: 1rem;
+.recipe {
+  margin: 1rem;
+  border: solid 0.5px #000000;
+  border-radius: 4px;
 }
 
-.recipe-image img {
-  height: 60rem;
-  width: 100%;
-}
-
-.recipe-user {
-  padding: 1rem;
-
+.recipe-up {
+  border-radius: 4px;
+  background-color: #FEFEFF;
+  padding: 0.5rem;
   span {
-    font-size: 1.5rem;
-    margin-left: 1rem;
+    font-size: 1.2rem;
   }
 }
 
-.recipe-image {
-  margin-bottom: 1rem;
+.recipe-under {
+  border-radius: 4px;
+  background-color: #FEFEFF;
+  padding: 0.5rem;
+  h3 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #6B8E23;
+  }
+  p {
+    font-size: 1.2rem;
+    color: #555555;
+  }
+  .i-size {
+    font-size: 2rem;
+  }
+  span {
+    font-size: 1.3rem;
+    color: #555555;
+    padding: 0 0.5rem;
+  }
 }
+
 
 // 検索画面
 
