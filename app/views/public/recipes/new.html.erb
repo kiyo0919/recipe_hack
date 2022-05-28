@@ -1,60 +1,59 @@
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-11 offset-md-1">
-      <div class="new-recipe">
-        <%= form_with model: @recipe, local: true do |f| %>
-          <%= render "layouts/error_messages", model: @recipe %>
-          <div class="form-group row">
-            <%= f.label "レシピのタイトル", class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.text_field :title,  placeholder: "例:だし巻き卵", autocomplete: 'off', class: "col-md-3 form-control" %>
-            <%= f.label :genre_id, "ジャンル",  class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "選択してください"}, {class: "col-md-3 form-control"} %>
-          </div>
-          <div class="form-group row">
-            <%= f.label "タグ (,で区切ると複数タグ登録できます)", class: "col-md-3 col-form-label font-weight-bold text-right" %>
-            <%= f.text_field :name, class: "col-md-2 form-control" %>
-          </div>
-          <div class="form-group row">
-            <%= f.label "キャッチコピー", class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.text_area :catch_phrase, placeholder: "60字以内", autocomplete: 'off', class: "col-md-3 form-control"  %>
-            <%= f.label "画像選択", class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.file_field :image, accept: "image/*", class: "col-md-5" %>
-          </div>
-          <div class="form-group row">
-            <%= f.label "材料", class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.text_field :number_of_persons,  placeholder: "2人分", autocomplete: 'off', class: "col-md-1 form-control form-control-sm" %>
-          </div>
-          <div class="ingredients">
-            <div class="form-group">
-              <%= f.fields_for :ingredients do |t| %>
-                <%= render "ingredient_fields", f:t %>
-              <% end %>
-              <div class="add-link">
-                <%= link_to_add_association "追加", f, :ingredients %>
-              </div>
-            </div>
-          </div>
-          <div class="steps">
-            <div class="form-group">
-              <%= f.fields_for :steps do |t| %>
-                <%= render "step_fields", f:t %>
-              <% end %>
-              <div class="add-link">
-                <%= link_to_add_association "追加", f, :steps %>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row">
-            <%= f.label "コツ", class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.text_area :tip, placeholder: "120字以内", autocomplete: 'off', class: "col-md-3 form-control"  %>
-          </div>
-          <div class="form-group row">
-            <%= f.label "生い立ち", class: "col-md-2 col-form-label font-weight-bold text-right" %>
-            <%= f.text_area :background, placeholder: "120字以内", autocomplete: 'off', class: "col-md-3 form-control"  %>
-          </div>
-          <%= f.submit "レシピを追加する",class: "btn btn-success"%>
-        <% end %>
+<%= render "layouts/error_messages", model: @recipe %>
+  <%= form_with model: @recipe, local: true do |f| %>
+  <div class="recipe-new">
+    <div class="new-title">
+      <p>タイトル</p>
+      <%= f.text_field :title,  placeholder: " 例:だし巻き卵 (17文字以内)", autocomplete: 'off' %>
+    </div>
+    <div class="new-row">
+      <div class="new-img">
+        <i class="fas fa-camera camera-size"></i>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="new-genre">
+        <span>ジャンル選択</span>
+        <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "選択してください"} %>
       </div>
     </div>
+    <div class="new-tag">
+      <p>タグ(,で区切ると複数タグ登録できます)</p>
+      <%= f.text_field :name %>
+    </div>
+    <div class="new-catch">
+      <p>キャッチフレーズ</p>
+      <%= f.text_area :catch_phrase, placeholder: " 60字以内", autocomplete: 'off' %>
+    </div>
+    <div class="tip-back-row">
+      <div class="new-tip">
+        <p>コツ・ポイント</p>
+        <%= f.text_area :tip, placeholder: " 120字以内", autocomplete: 'off' %>
+      </div>
+      <div class="new-back">
+        <p>生い立ち</p>
+        <%= f.text_area :background, placeholder: " 120字以内", autocomplete: 'off' %>
+      </div>
+    </div>
+    <div class="new-ingredient">
+      <p>材料</p>
+      <%= f.text_field :number_of_persons,  placeholder: "2人分", autocomplete: 'off' %>
+      <%= f.fields_for :ingredients do |t| %>
+        <%= render "ingredient_fields", f:t %>
+      <% end %>
+      <div class="add-link">
+        <%= link_to_add_association "追加", f, :ingredients, class: "ingredient-add-btn" %>
+      </div>
+    </div>
+    <div class="new-step">
+      <p>手順</p>
+      <%= f.fields_for :steps do |t| %>
+        <%= render "step_fields", f:t %>
+      <% end %>
+      <div class="add-link">
+        <%= link_to_add_association "追加", f, :steps, class:"ingredient-add-btn" %>
+      </div>
+    </div>
+    <div class="submit">
+      <%= f.submit "レシピを追加", class: "recipe-submit-btn"%>
+    </div>
   </div>
-</div>
+  <% end %>

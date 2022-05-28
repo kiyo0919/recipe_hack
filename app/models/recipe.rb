@@ -17,7 +17,10 @@ class Recipe < ApplicationRecord
     validates :catch_phrase
   end
 
-  validates :title,  length: { maximum: 17 }
+  validates :title, length: { maximum: 17 }
+  validates :catch_phrase, length: { maximum: 60 }
+  validates :tip, length: { maximum: 120 }
+  validates :background, length: { maximum: 120 }
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -25,7 +28,7 @@ class Recipe < ApplicationRecord
 
   def get_recipe_image(width, height)
     unless image.attached?
-      file_path = Rails.root.join("app/images/no_recipe_image.png")
+      file_path = Rails.root.join("app/assets/images/no_recipe_image.jpeg")
       image.attach(io: File.open(file_path),filename: "default-image.jpg",content_type: "image/jpeg")
     end
     image.variant(resize_to_fill: [width, height]).processed

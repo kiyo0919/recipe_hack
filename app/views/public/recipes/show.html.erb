@@ -17,7 +17,7 @@
         <div class="recipe-detail">
           <div class="row">
             <div class="col-md-6">
-              <%= image_tag @recipe.image, size: "200x200"%>
+              <%= image_tag @recipe.get_recipe_image(250,200) %>
               <p><%= @recipe.catch_phrase %></p>
             </div>
             <div class="col-md-6">
