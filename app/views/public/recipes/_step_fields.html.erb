@@ -1,6 +1,6 @@
-<div class="nested-fields row mb-2">
-  <%= f.number_field :step, placeholder: "手順", class: "col-md-1 mr-2 form-control form-control-sm text-center "%>
-  <%= f.file_field :step_image, accept: "image/*", class: "col-md-5" %>
-  <%= f.text_area :description, placeholder: "説明(60字以内)", class: "col-md-3 mr-2 form-control" %>
-  <%= link_to_remove_association "削除", f, class: "btn btn-secondary btn-sm" %>
+<div class="nested-fields">
+  <%= f.number_field :step, min:1, value: 1 %>
+  <%= f.file_field :step_image, accept: "image/*", class:"step-img" %>
+  <%= f.text_area :description, placeholder: " 説明(60字以内)" %>
+  <%= link_to_remove_association "削除", f, class:"ingredient-delete-btn" %>
 </div>
