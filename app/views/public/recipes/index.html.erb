@@ -18,8 +18,13 @@
             <h3><%= recipe.title %></h3>
             <p><%= recipe.catch_phrase %></p>
           </div>
-          <div class="table_favorites<%= recipe.id %>">
-            <%= render "public/favorites/favorite_btn", recipe:recipe %>
+          <div class="favo-comment">
+            <div class="table_favorites<%= recipe.id %>">
+              <%= render "public/favorites/favorite_btn", recipe:recipe %>
+            </div>
+            <div class="favo-comment-count<%= recipe.id %>">
+              <%= render "public/favorites/favo_comment_count", recipe: recipe %>
+            </div>
           </div>
         </div>
       </div>
