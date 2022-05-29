@@ -436,11 +436,14 @@ input, textarea{
 .recipe-about {
   border: 2px solid #d9d7dd;
   border-radius: 10px;
+  font-size: 1.5rem;
   margin: 1rem;
   padding: 1rem 0;
   position: relative;
   h2 {
     margin: 1rem;
+    font-weight: bold;
+    color: #6B8E23;
   }
 }
 
@@ -448,6 +451,11 @@ input, textarea{
   position: absolute;
   top: 1rem;
   right: 3rem;
+  font-size: 1.5rem;
+  .i-size {
+    font-size: 3rem;
+    margin-right: 1rem;
+  }
 }
 
 .recipe-detail {
@@ -481,8 +489,8 @@ input, textarea{
 .recipe-tag {
   display: flex;
   p {
-    font-size: 1.2rem;
-    margin-right: 1rem;
+    font-size: 1.3rem;
+    margin: 1rem 1rem;
     color: #1558d6;
   }
 }
@@ -534,6 +542,9 @@ input, textarea{
     font-size: 1.3rem;
     color: #555555;
     padding: 0 0.5rem;
+  }
+  .favo-comment {
+    display: flex
   }
 }
 
