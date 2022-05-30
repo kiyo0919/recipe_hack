@@ -558,3 +558,47 @@ table td {
   font-size: 1.2rem;
   color: #808080;
 }
+
+// ユーザー詳細
+
+.mypage {
+  width: 100%;
+}
+.mypage-top {
+  display: flex;
+  width: 80%;
+  margin: 2rem auto;
+  .user-image {
+    width: 60%;
+    text-align: center;
+    font-size: 1.5rem;
+    h4 {
+      font-size: 2.5rem;
+      margin: 1.5rem;
+    }
+    .follow {
+      span {
+        font-weight: bold;
+      }
+    }
+    .follow-btn {
+      margin: 1rem;
+    }
+  }
+  .user-info {
+    width: 30%;
+    margin-top: 4rem;
+    .recipe-btn, .edit-profile-btn, .stock-food-btn {
+      border-radius:1rem;
+      background:#d2691e;
+      border:none;
+      color:#fff;
+      font-weight:bold;
+      font-size: 1.5rem;
+      padding: 0.7rem;
+      margin: 1rem 0;
+      display: block;
+      text-align: center;
+    }
+  }
+}

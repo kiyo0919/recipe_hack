@@ -1,45 +1,69 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
+<div class="mypage">
+  <div class="mypage-top">
+    <div class="user-image">
+      <%= image_tag @user.get_profile_image(200,200), class: "rounded-circle" %>
+      <div class="user-name">
+        <h4><strong><%= @user.nick_name %></strong></h4>
+      </div>
+      <div class="follow">
+        <%= link_to user_followings_path(@user) do %>
+          フォロー <span><%= @user.followings.count %></span>人
+        <% end %>
+        <%= link_to user_followers_path(@user) do %>
+          フォロワー <span><%= @user.followers.count %></span>人
+        <% end %>
+        <div class="follow-btn">
+          <% unless @user == current_user %>
+            <% if current_user.following?(@user) %>
+            <%= link_to "フォローを外す", user_relationships_path(@user), method: :delete, class: "btn btn-secondary" %>
+            <% else %>
+            <%= link_to "フォローする", user_relationships_path(@user), method: :post, class: "btn btn-info" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="col-md-5 offset-md-1">
-      <h4><strong><%= @user.nick_name %></strong></h4>
+    <div class="user-info">
       <% if @user == current_user %>
-        <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-secondary btn-sm"%>
-        <%= link_to "ストック食品一覧",  user_stock_foods_path(@user), class: "btn btn-secondary btn-sm"%>
+        <%= link_to "レシピ投稿", new_recipe_path, class:"recipe-btn" %>
+        <%= link_to "プロフィール編集", edit_user_path(@user), class: "edit-profile-btn" %>
+        <%= link_to "ストック食品一覧",  user_stock_foods_path(@user), class: "stock-food-btn" %>
         <% if @user.notifications.where(action: "warning").exists? || @user.notifications.where(action: "expired").exists? %>
           <span class="material-icons">notifications_active</span>
         <% end %>
       <% end %>
-      <div class="follow">
-        <%= link_to user_followings_path(@user) do %>
-          <%= @user.followings.count %>人
-        <% end %>
-        <%= link_to user_followers_path(@user) do %>
-          <%= @user.followers.count %>人
-        <% end %>
-        <% unless @user == current_user %>
-          <% if current_user.following?(@user) %>
-            <%= link_to "フォローを外す", user_relationships_path(@user), method: :delete, class: "btn btn-secondary btn-sm" %>
-          <% else %>
-            <%= link_to "フォローする", user_relationships_path(@user), method: :post, class: "btn btn-info btn-sm" %>
+    </div>
+  </div>
+
+
+  <div class="recipe-index">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe">
+        <div class="recipe-up">
+          <%= link_to user_path(recipe.user) do %>
+            <%= image_tag recipe.user.get_profile_image(35,35), class: "rounded-circle" %>
           <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="row justify-content-canter">
-    <div class="col-md-12">
-      <div class="row">
-        <% @recipes.each do |recipe| %>
-          <div class="col-md-4">
-            <%= link_to recipe_path(recipe) do %>
-              <%= image_tag recipe.image, size: "293x293" %>
-            <% end %>
+          <span><%= recipe.user.nick_name %></span>
+        </div>
+        <div class="recipe-image">
+          <%= link_to recipe_path(recipe) do %>
+            <%= image_tag recipe.get_recipe_image(300,200) %>
+          <% end %>
+        </div>
+        <div class="recipe-under">
+          <div class="recipe-title">
+            <h3><%= recipe.title %></h3>
+            <p><%= recipe.catch_phrase %></p>
           </div>
-        <% end %>
+          <div class="favo-comment">
+            <div class="table_favorites<%= recipe.id %>">
+              <%= render "public/favorites/favorite_btn", recipe:recipe %>
+            </div>
+            <div class="favo-comment-count<%= recipe.id %>">
+              <%= render "public/favorites/favo_comment_count", recipe: recipe %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    <% end %>
 </div>
