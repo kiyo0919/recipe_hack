@@ -499,12 +499,16 @@ input, textarea{
   margin: 10px;
 }
 
-// レシピ一覧画面
+// レシピ一覧画面,タグ検索結果一覧
 .recipe-index {
   width: 90%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+}
+
+.tag-name {
+  margin: 1rem 10rem;
 }
 
 .recipe {
