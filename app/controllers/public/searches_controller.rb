@@ -45,6 +45,9 @@ class Public::SearchesController < ApplicationController
     if Tag.find(params[:tag_id]).present?
       @tag = Tag.find(params[:tag_id])
       @recipes = @tag.recipes
+    else
+      flash[:alert] = "#{@tag.name}がつくレシピが見つかりませんでした"
+      redirect_to recipes_path
     end
   end
 end
