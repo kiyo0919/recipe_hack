@@ -497,6 +497,12 @@ input, textarea{
 
 .comment_form {
   margin: 10px;
+  font-size: 1.4rem;
+}
+
+textarea#recipe_comment_comment {
+  width: 30rem;
+  height: 5rem;
 }
 
 // レシピ一覧画面,タグ検索結果一覧

@@ -59,12 +59,8 @@
     <div class="col-md-5">
       <div class="comment_form">
         <%= form_with model: [@recipe, @recipe_comment], local:false do |f| %>
-          <div class="form-group row">
-            <%= f.text_area :comment, placeholder: "コメントをここに", class:"form-control form-control-lg col-md-6" %>
-          </div>
-          <div class="form-group row">
-            <%= f.submit "送信する", class:"col-md-2 btn btn-secondary btn-sm" %>
-          </div>
+            <%= f.text_area :comment, placeholder: " コメントをここに" %>
+            <%= f.submit "送信する" %>
         <% end %>
       </div>
       <div class="comments_table">
