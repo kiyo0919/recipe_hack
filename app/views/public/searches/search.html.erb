@@ -32,13 +32,11 @@
         </div>
         <div class="col-md-4">
           <% if Ingredient.where(name: @word).exists? %>
-            <% ingredients = Ingredient.where(name: @word) %>
-            <% include_ingredients_recipes = Recipe.where(ingredients: ingredients) %>
-            <h3><strong><%= @word %></strong>を使用したレシピ</h3>
             <div class="include-recipes">
-              <table class="table mt-4">
+              <h3><strong><%= @word %></strong>を使用したレシピ</h3>
+                <table class="mt-4">
                 <tbody>
-                  <% include_ingredients_recipes.each do |recipe| %>
+                  <% @include_ingredients_recipes.each do |recipe| %>
                     <tr>
                       <td>
                         <%= link_to recipe_path(recipe) do %>
@@ -47,7 +45,7 @@
                       </td>
                       <td>
                         <%= link_to recipe_path(recipe) do %>
-                          <%= recipe.title %>
+                          <h5><%= recipe.title %></h5>
                         <% end %>
                         <p><%= recipe.catch_phrase %></p>
                       </td>
