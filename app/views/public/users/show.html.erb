@@ -27,10 +27,14 @@
       <% if @user == current_user %>
         <%= link_to "レシピ投稿", new_recipe_path, class:"recipe-btn" %>
         <%= link_to "プロフィール編集", edit_user_path(@user), class: "edit-profile-btn" %>
-        <%= link_to "ストック食品一覧",  user_stock_foods_path(@user), class: "stock-food-btn" %>
-        <% if @user.notifications.where(action: "warning").exists? || @user.notifications.where(action: "expired").exists? %>
-          <span class="material-icons">notifications_active</span>
-        <% end %>
+        <div class="stock-btn">
+          <%= link_to "ストック食品一覧",  user_stock_foods_path(@user), class: "stock-food-btn" %>
+          <div class="stock-alert">
+            <% if @user.notifications.where(action: "warning").exists? || @user.notifications.where(action: "expired").exists? %>
+              <i class="fas fa-bell icon-size"></i>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

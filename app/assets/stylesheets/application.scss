@@ -24,7 +24,7 @@
 
 
  body {
-  background-color: #efeff0;
+  background-color: #f8f4e6;
  }
 
  * {
@@ -48,10 +48,14 @@ input, textarea{
 
  .notice {
    color: green;
+   font-size: 1.7rem;
+   text-align: center;
  }
 
  .alert {
    color: red;
+   font-size: 1.7rem;
+   text-align: center;
  }
 
 // エラーメッセ表示時、レイアウト崩れ防止
@@ -95,6 +99,10 @@ input, textarea{
 .brand-logo {
   font-family: 'Caveat', cursive;
   font-size: 6rem;
+}
+
+header {
+  font-size: 1.7rem;
 }
 
 // サインアップ画面
@@ -257,8 +265,8 @@ input, textarea{
     margin: 0.3rem 0 0 1rem;
     width:50px;
     height:20px;
-    border-radius:0 2px 2px 0;
-    background:#d2691e;
+    border-radius: 2px;
+    background:#6b3f31; //マカボニー
     border:none;
     color:#fff;
     font-weight:bold;
@@ -370,7 +378,7 @@ input, textarea{
   }
   .ingredient-add-btn {
     border-radius:0 2px 2px 0;
-    background:#d2691e;
+    background:#6b3f31; //マカボニー
     border:none;
     color:#fff;
     font-weight:bold;
@@ -407,7 +415,7 @@ input, textarea{
   }
   .ingredient-add-btn {
     border-radius:0 2px 2px 0;
-    background:#d2691e;
+    background:#6b3f31; //マカボニー
     border:none;
     color:#fff;
     font-weight:bold;
@@ -434,6 +442,7 @@ input, textarea{
 // レシピ詳細画面
 
 .recipe-about {
+  background-color: #f7f6f5;
   border: 2px solid #d9d7dd;
   border-radius: 10px;
   font-size: 1.5rem;
@@ -519,13 +528,13 @@ textarea#recipe_comment_comment {
 
 .recipe {
   margin: 1rem;
-  border: solid 0.5px #000000;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .recipe-up {
   border-radius: 4px;
-  background-color: #FEFEFF;
+  background-color: #f7f6f5; //パールホワイト
   padding: 0.5rem;
   span {
     font-size: 1.2rem;
@@ -534,7 +543,7 @@ textarea#recipe_comment_comment {
 
 .recipe-under {
   border-radius: 4px;
-  background-color: #FEFEFF;
+  background-color: #f7f6f5;
   padding: 0.5rem;
   h3 {
     font-size: 1.7rem;
@@ -558,16 +567,26 @@ textarea#recipe_comment_comment {
   }
 }
 
-// 検索画面
-
-table td {
-  font-size: 1.5rem;
+// 検索一覧画面
+.include-recipes {
+  h3 {
+    font-size: 2.5rem;
+  }
+  h5 {
+    font-weight: bold;
+  }
+  p {
+    color: #808080;
+  }
+  p, h5{
+    margin-left: 1rem;
+  }
+  tr {
+    background-color: #f7f6f5;
+    border: 1px solid #ccc;
+  }
 }
 
-.include-recipes p {
-  font-size: 1.2rem;
-  color: #808080;
-}
 
 // ユーザー詳細
 
@@ -599,8 +618,10 @@ table td {
     width: 30%;
     margin-top: 4rem;
     .recipe-btn, .edit-profile-btn, .stock-food-btn {
+      width: 35rem;
+      height: 4rem;
       border-radius:1rem;
-      background:#d2691e;
+      background:#6b3f31; //マカボニー
       border:none;
       color:#fff;
       font-weight:bold;
@@ -610,5 +631,34 @@ table td {
       display: block;
       text-align: center;
     }
+    .stock-btn {
+      font-size: 1.5rem;
+      width: 50rem;
+      height: 4rem;
+      position: relative;
+    }
+    .stock-alert {
+      position: absolute;
+      right: 14rem;
+      top: -1rem;
+    }
+    .icon-size {
+      font-size: 3rem;
+      color: #eddc44;
+    }
   }
+}
+
+// ストック一覧
+.stock-food {
+  h5 {
+    font-size: 2rem;
+    margin: 2rem;
+  }
+  font-size: 1.4rem;
+}
+
+.stock-table {
+  margin: 2rem;
+  font-size: 1.4rem;
 }
