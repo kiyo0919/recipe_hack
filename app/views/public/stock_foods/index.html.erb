@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="stock-food">
+        <h5><strong>ストック食材を登録する</strong></h5>
+          <%= form_with model: @stock_food, url: user_stock_foods_path(@user), local:true do |f| %>
+            <div class="form-group row">
+              <%= f.label "ストック食品", class: "col-md-4 col-form-label" %>
+              <%= f.text_field :name, placeholder: "例:大根", class: "form-control col-md-5" %>
+            </div>
+            <div class="form-group row">
+              <%= f.label "消費期限", class: 'col-md-4 control-label' %>
+              <%= f.date_field :expiration_date, class: 'form-control col-md-5' %>
+            </div>
+            <%= f.submit '登録する', class: "btn btn-success" %>
+          <% end %>
+      </div>
+    </div>
+    <div class="col-md-6 offset-md-1">
+      <table class="table stock-table">
+        <thead>
+          <tr>
+            <td><strong>ストック食品</strong></td>
+            <td><strong>消費期限</strong></td>
+            <td colspan="3"><strong>今日の日付：<%= Date.today %></strong></td>
+          </tr>
+      </thead>
+      <tbody>
+        <% @stock_foods.each do |stock_food| %>
+        <tr>
+          <td><%= stock_food.name %></td>
+          <td><%= stock_food.expiration_date %></td>
+          <td>
+            <% if stock_food.notification.nil? %>
+            <% elsif stock_food.notification.action == "warning" %>
+              <strong>もうすぐ切れます</strong>
+            <% elsif stock_food.notification.action == "expired" %>
+              <strong>期限切れ</strong>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "Destroy", user_stock_food_path(stock_food.user, stock_food), method: :delete, 'data-confirm' => "本当に消しますか？", class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </div>
+  </div>
+</div>

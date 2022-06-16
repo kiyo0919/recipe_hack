@@ -1,0 +1,33 @@
+<main>
+  <div class="recipe-index">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe">
+        <div class="recipe-up">
+          <%= link_to user_path(recipe.user) do %>
+            <%= image_tag recipe.user.get_profile_image(35,35), class: "rounded-circle" %>
+          <% end %>
+          <span><%= recipe.user.nick_name %></span>
+        </div>
+        <div class="recipe-image">
+          <%= link_to recipe_path(recipe) do %>
+            <%= image_tag recipe.get_recipe_image(300,200) %>
+          <% end %>
+        </div>
+        <div class="recipe-under">
+          <div class="recipe-title">
+            <h3><%= recipe.title %></h3>
+            <p><%= recipe.catch_phrase %></p>
+          </div>
+          <div class="favo-comment">
+            <div class="table_favorites<%= recipe.id %>">
+              <%= render "public/favorites/favorite_btn", recipe:recipe %>
+            </div>
+            <div class="favo-comment-count<%= recipe.id %>">
+              <%= render "public/favorites/favo_comment_count", recipe: recipe %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>

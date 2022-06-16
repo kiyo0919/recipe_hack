@@ -1,0 +1,2 @@
+$(".table_favorites<%= @recipe.id %>").html("<%= j(render 'favorite_btn', recipe: @recipe) %>");
+$(".favo-comment-count<%= @recipe.id %>").html("<%= j(render 'favo_comment_count', recipe: @recipe) %>");

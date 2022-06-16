@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="recipe-about">
+        <div class="row">
+          <div class="col-md-8">
+            <h2><%= @recipe.title %></h2>
+          </div>
+          <div class="col-md-4">
+            <div class="favorite-btn">
+              <div class="table_favorites<%= @recipe.id %>">
+                <%= render "public/favorites/favorite_btn", recipe:@recipe %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-detail">
+          <div class="row">
+            <div class="col-md-6">
+              <%= image_tag @recipe.get_recipe_image(250,200) %>
+              <p><%= @recipe.catch_phrase %></p>
+            </div>
+            <div class="col-md-6">
+              <table class="table">
+                <p><%= @recipe.number_of_persons %></p>
+                <tbody>
+                  <% @recipe.ingredients.each do |ingredient| %>
+                  <tr>
+                    <td><%= ingredient.name %></td>
+                    <td><%= ingredient.quantity %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="recipe-steps">
+          <% @recipe.steps.each do |step| %>
+            <div class="recipe-step">
+              <span><strong>Step<%= step.step %></strong></span>
+              <% if step.step_image.attached? %>
+                <%= image_tag step.step_image, size: "130x90" %>
+              <% end %>
+              <p><%= step.description %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="recipe-tag">
+          <i class="fas fa-tags fa-2x ml-3 mr-3"></i>
+          <% @recipe.tags.each do |tag| %>
+            <%= link_to tag_searches_path(tag_id: tag.id) do %>
+              <p><%= tag.name %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="comment_form">
+        <%= form_with model: [@recipe, @recipe_comment], local:false do |f| %>
+            <%= f.text_area :comment, placeholder: " コメントをここに" %>
+            <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+      <div class="comments_table">
+        <%= render "public/recipe_comments/table_comment", recipe_comments: @recipe.recipe_comments %>
+      </div>
+    </div>
+  </div>
+</div>
+

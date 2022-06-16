@@ -1,0 +1,664 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ html {
+  font-size: 62.5%;
+  }
+
+  h1{
+    font-size: 5rem;
+    }
+
+
+ body {
+  background-color: #f8f4e6;
+ }
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+input, textarea{
+  outline: none;
+}
+
+ .notice {
+   color: green;
+   font-size: 1.7rem;
+   text-align: center;
+ }
+
+ .alert {
+   color: red;
+   font-size: 1.7rem;
+   text-align: center;
+ }
+
+// エラーメッセ表示時、レイアウト崩れ防止
+ .field_with_errors {
+  display: contents;
+}
+// エラーメッセ
+#error_explanation {
+  margin: 2rem auto;
+  width: 60%;
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+    ul {
+      list-style: none;
+      font-size: 1.3rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+}
+
+.error {
+  margin: 2rem auto;
+  width: 60%;
+  font-size: 1.2rem;
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+    ul {
+      list-style: none;
+    }
+}
+
+
+
+.brand-logo {
+  font-family: 'Caveat', cursive;
+  font-size: 6rem;
+}
+
+header {
+  font-size: 1.7rem;
+}
+
+// サインアップ画面
+.sign-up {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 4rem auto;
+  width: 85rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #F9F9FA;
+
+  h2 {
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin: 2rem 0;
+  }
+  .sign-table {
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+  }
+  .table-head, .table-body, .table-head-last-name, .table-head-first-name, .table-body-last-name, .table-body-first-name {
+    font-size: 1.5rem;
+    padding: 1.2rem;
+  }
+
+
+  input#user_last_name, input#user_first_name, input#user_last_name_kana, input#user_first_name_kana {
+    width: 15rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #F9F9FA;
+  }
+
+  input {
+    width: 24rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #F9F9FA;
+  }
+
+  .sign-btn {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #60AB9A;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    margin: 3rem 0 0 25rem;
+    font-size: 1.6rem;
+    border-radius: 100vh;
+    border: none;
+  }
+}
+// ログイン画面
+.sign {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 4rem auto;
+  width: 40rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #F9F9FA;
+  h2 {
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin: 2rem 0;
+  }
+  .sign-table {
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+  }
+  .table-head, .table-body {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .table-head {
+    width: 30%;
+  }
+  .table-body {
+    width: 70%;
+  }
+  input {
+    width: 20rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #F9F9FA;
+  }
+
+  .sign-btn {
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #60AB9A;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    margin: 3rem auto;
+    font-size: 1.6rem;
+    border-radius: 100vh;
+    border: none;
+  }
+}
+
+// トップ画面
+.top {
+  background: linear-gradient(to bottom, #efeff0 0%, #efeff0 40%, #cbd2c6 50%, #cbd2c6 100%);
+}
+
+.title {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.title h1 {
+  font-family: 'Caveat', cursive;
+  font-size: 7rem;
+}
+
+.top-under .recipes {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipes img {
+  padding: 10px;
+  height: 200px;
+  width: 200px;
+}
+
+// 検索フォーム
+
+.search {
+  display: flex;
+  font-size: 1.2rem;
+  .search-form {
+    display: flex;
+  }
+  .radio-btn {
+    display: flex;
+    flex-flow: column;
+    margin-left: 1rem;
+  }
+  input#word {
+    width: 20rem;
+  }
+  p {
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin: 0.4rem 1rem 0 0;
+  }
+  .search-btn {
+    margin: 0.3rem 0 0 1rem;
+    width:50px;
+    height:20px;
+    border-radius: 2px;
+    background:#6b3f31; //マカボニー
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    font-size:1.2rem;
+  }
+}
+
+// レシピ投稿画面
+
+.recipe-new {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.new-title {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  p {
+    font-size: 1.5rem;
+  }
+  input#recipe_title {
+    width: 30rem;
+  }
+}
+
+.new-row {
+  display: flex;
+}
+
+.new-img {
+  text-align: center;
+  margin-bottom: 1rem;
+  .camera-size {
+    font-size: 2rem;
+  }
+  input#recipe_image {
+    font-size: 1.5rem;
+  }
+}
+
+.new-tag {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  input#recipe_name {
+    width: 30rem;
+  }
+}
+
+.new-genre {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  select#recipe_genre_id {
+    width: 30rem;
+  }
+}
+
+.new-catch {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  textarea#recipe_catch_phrase {
+    width: 30rem;
+  }
+}
+
+.tip-back-row {
+  display: flex;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.new-tip {
+  width: 40%;
+  margin-right: 1rem;
+  textarea#recipe_tip {
+    width: 30rem;
+  }
+}
+
+.new-back {
+  width: 40%;
+  textarea#recipe_background {
+    width: 30rem;
+  }
+}
+
+.new-ingredient {
+  font-size: 1.5rem;
+  width: 50%;
+  margin-bottom: 1rem;
+  input#recipe_number_of_persons {
+    width: 10rem;
+  }
+  input {
+    margin-bottom: 1rem;
+  }
+  .add-link {
+    text-align: left;
+  }
+
+  .ingredient-delete-btn {
+    border-radius:0 2px 2px 0;
+    background-color:gray;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    padding: 0.4rem;
+  }
+  .ingredient-add-btn {
+    border-radius:0 2px 2px 0;
+    background:#6b3f31; //マカボニー
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    padding: 0.4rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.new-step {
+  font-size: 1.5rem;
+  .add-link {
+    text-align: left;
+  }
+  input {
+    font-size: 1.3rem;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+  .step-img {
+    width: 25rem;
+    margin-left: 1rem;
+  }
+  textarea {
+    width: 30rem;
+  }
+  .ingredient-delete-btn {
+    border-radius:0 2px 2px 0;
+    background-color:gray;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    padding: 0.4rem;
+  }
+  .ingredient-add-btn {
+    border-radius:0 2px 2px 0;
+    background:#6b3f31; //マカボニー
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    padding: 0.4rem;
+    margin: 1rem 0;
+  }
+}
+
+.submit {
+  text-align: left;
+  .recipe-submit-btn {
+    border-radius:0 2px 2px 0;
+    background:#229e68;
+    border:none;
+    color:#fff;
+    font-weight:bold;
+    padding: 0.5rem;
+    margin: 4rem;
+    width: 15rem;
+    font-size: 2rem;
+  }
+}
+
+// レシピ詳細画面
+
+.recipe-about {
+  background-color: #f7f6f5;
+  border: 2px solid #d9d7dd;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 1rem 0;
+  position: relative;
+  h2 {
+    margin: 1rem;
+    font-weight: bold;
+    color: #6B8E23;
+  }
+}
+
+.recipe-about .favorite-btn {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  font-size: 1.5rem;
+  .i-size {
+    font-size: 3rem;
+    margin-right: 1rem;
+  }
+}
+
+.recipe-detail {
+  margin: 30px;
+}
+
+.recipe-detail .table {
+  font-size: 1.2rem;
+}
+
+.recipe-steps {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  img {
+    margin: 1rem;
+  }
+}
+
+.recipe-step {
+  width: 130px;
+  margin: 10px;
+  span {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1.6rem;
+    }
+}
+
+.recipe-tag {
+  display: flex;
+  p {
+    font-size: 1.3rem;
+    margin: 1rem 1rem;
+    color: #1558d6;
+  }
+}
+
+.comment_form {
+  margin: 10px;
+  font-size: 1.4rem;
+}
+
+textarea#recipe_comment_comment {
+  width: 30rem;
+  height: 5rem;
+}
+
+// レシピ一覧画面,タグ検索結果一覧
+.recipe-index {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-name {
+  margin: 1rem 10rem;
+}
+
+.recipe {
+  margin: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.recipe-up {
+  border-radius: 4px;
+  background-color: #f7f6f5; //パールホワイト
+  padding: 0.5rem;
+  span {
+    font-size: 1.2rem;
+  }
+}
+
+.recipe-under {
+  border-radius: 4px;
+  background-color: #f7f6f5;
+  padding: 0.5rem;
+  h3 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #6B8E23;
+  }
+  p {
+    font-size: 1.2rem;
+    color: #555555;
+  }
+  .i-size {
+    font-size: 2rem;
+  }
+  span {
+    font-size: 1.3rem;
+    color: #555555;
+    padding: 0 0.5rem;
+  }
+  .favo-comment {
+    display: flex
+  }
+}
+
+// 検索一覧画面
+.include-recipes {
+  h3 {
+    font-size: 2.5rem;
+  }
+  h5 {
+    font-weight: bold;
+  }
+  p {
+    color: #808080;
+  }
+  p, h5{
+    margin-left: 1rem;
+  }
+  tr {
+    background-color: #f7f6f5;
+    border: 1px solid #ccc;
+  }
+}
+
+
+// ユーザー詳細
+
+.mypage {
+  width: 100%;
+}
+.mypage-top {
+  display: flex;
+  width: 80%;
+  margin: 2rem auto;
+  .user-image {
+    width: 60%;
+    text-align: center;
+    font-size: 1.5rem;
+    h4 {
+      font-size: 2.5rem;
+      margin: 1.5rem;
+    }
+    .follow {
+      span {
+        font-weight: bold;
+      }
+    }
+    .follow-btn {
+      margin: 1rem;
+    }
+  }
+  .user-info {
+    width: 30%;
+    margin-top: 4rem;
+    .recipe-btn, .edit-profile-btn, .stock-food-btn {
+      width: 35rem;
+      height: 4rem;
+      border-radius:1rem;
+      background:#6b3f31; //マカボニー
+      border:none;
+      color:#fff;
+      font-weight:bold;
+      font-size: 1.5rem;
+      padding: 0.7rem;
+      margin: 1rem 0;
+      display: block;
+      text-align: center;
+    }
+    .stock-btn {
+      font-size: 1.5rem;
+      width: 50rem;
+      height: 4rem;
+      position: relative;
+    }
+    .stock-alert {
+      position: absolute;
+      right: 14rem;
+      top: -1rem;
+    }
+    .icon-size {
+      font-size: 3rem;
+      color: #eddc44;
+    }
+  }
+}
+
+// ストック一覧
+.stock-food {
+  h5 {
+    font-size: 2rem;
+    margin: 2rem;
+  }
+  font-size: 1.4rem;
+}
+
+.stock-table {
+  margin: 2rem;
+  font-size: 1.4rem;
+}

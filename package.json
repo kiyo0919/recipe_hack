@@ -2,10 +2,21 @@
   "name": "recipe-hack",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@fortawesome/fontawesome-free": "^5.15.4",
+>>>>>>> b87a0b962c61c4a0e7cf1b80daaa35a05a8a1fda
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
+<<<<<<< HEAD
+=======
+    "bootstrap": "4.5",
+    "cocoon": "github:nathanvda/cocoon#c24ba53",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+>>>>>>> b87a0b962c61c4a0e7cf1b80daaa35a05a8a1fda
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
