@@ -1,0 +1,59 @@
+<%= render "layouts/error_messages", model: @recipe %>
+  <%= form_with model: @recipe, local: true do |f| %>
+  <div class="recipe-new">
+    <div class="new-title">
+      <p>タイトル</p>
+      <%= f.text_field :title,  placeholder: " 例:だし巻き卵 (17文字以内)", autocomplete: 'off' %>
+    </div>
+    <div class="new-row">
+      <div class="new-img">
+        <i class="fas fa-camera camera-size"></i>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="new-genre">
+        <span>ジャンル選択</span>
+        <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "選択してください"} %>
+      </div>
+    </div>
+    <div class="new-tag">
+      <p>タグ(,で区切ると複数タグ登録できます)</p>
+      <%= f.text_field :name %>
+    </div>
+    <div class="new-catch">
+      <p>キャッチフレーズ</p>
+      <%= f.text_area :catch_phrase, placeholder: " 60字以内", autocomplete: 'off' %>
+    </div>
+    <div class="tip-back-row">
+      <div class="new-tip">
+        <p>コツ・ポイント</p>
+        <%= f.text_area :tip, placeholder: " 120字以内", autocomplete: 'off' %>
+      </div>
+      <div class="new-back">
+        <p>生い立ち</p>
+        <%= f.text_area :background, placeholder: " 120字以内", autocomplete: 'off' %>
+      </div>
+    </div>
+    <div class="new-ingredient">
+      <p>材料</p>
+      <%= f.text_field :number_of_persons,  placeholder: "2人分", autocomplete: 'off' %>
+      <%= f.fields_for :ingredients do |t| %>
+        <%= render "ingredient_fields", f:t %>
+      <% end %>
+      <div class="add-link">
+        <%= link_to_add_association "追加", f, :ingredients, class: "ingredient-add-btn" %>
+      </div>
+    </div>
+    <div class="new-step">
+      <p>手順</p>
+      <%= f.fields_for :steps do |t| %>
+        <%= render "step_fields", f:t %>
+      <% end %>
+      <div class="add-link">
+        <%= link_to_add_association "追加", f, :steps, class:"ingredient-add-btn" %>
+      </div>
+    </div>
+    <div class="submit">
+      <%= f.submit "レシピを追加", class: "recipe-submit-btn"%>
+    </div>
+  </div>
+  <% end %>

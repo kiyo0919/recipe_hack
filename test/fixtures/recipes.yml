@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  genre_id: 1
+  title: MyString
+  catch_phrase: MyText
+  number_of_persons: MyString
+  tip: MyText
+  background: MyText
+
+two:
+  user_id: 1
+  genre_id: 1
+  title: MyString
+  catch_phrase: MyText
+  number_of_persons: MyString
+  tip: MyText
+  background: MyText

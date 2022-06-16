@@ -6,11 +6,111 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!--cssが効かないエラーがあり、このように記述すること-->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!--で反映された。 参考 https://teratail.com/questions/289925-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <div class="brand-logo"><h1>RecipeHack</h1></div>
+          <% end %>
+            <%= form_with url: searches_path, method: :get do |f| %>
+              <div class="search">
+                <div class="search-form">
+                  <p>検索</p>
+                  <%= f.text_field :word, placeholder: "  キーワード" %>
+                </div>
+                <div class="radio-btn">
+                  <span>レシピを探す</span>
+                  <%= f.radio_button :search_method, 0, checked: true %>
+                </div>
+                <div class="radio-btn">
+                  <span>ユーザーを探す</span>
+                  <%= f.radio_button :search_method, 1 %>
+                </div>
+                <%= f.submit "検索", class: "search-btn"%>
+              </div>
+            <% end %>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars fa-2x"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <% if user_signed_in? %>
+              <ul class="navbar-nav">
+                <li class="nav-item nav-link text-light">
+                  <%= link_to user_path(current_user) do %>
+                    My Page
+                  <% end %>
+                </li>
+                <li class="nav-item nav-link text-light">
+                  <%= link_to recipes_path do %>
+                    Recipes
+                  <% end %>
+                </li>
+                <li class="nav-item nav-link text-light">
+                  <%= link_to  destroy_user_session_path, method: :delete do %>
+                    Log Out
+                  <% end %>
+                </li>
+              </ul>
+            <% elsif admin_signed_in? %>
+              <ul class="navbar-nav">
+                <li class="nav-item nav-link text-light">
+                  <%= link_to "#" do %>
+                    #
+                  <% end %>
+                </li>
+                <li class="nav-item nav-link text-light">
+                  <%= link_to "#" do %>
+                    #
+                  <% end %>
+                </li>
+                <li class="nav-item nav-link text-light">
+                  <%= link_to  "#", method: :delete do %>
+                    #
+                  <% end %>
+                </li>
+              </ul>
+            <% else %>
+              <ul class="navbar-nav">
+                <li class="nav-item nav-link text-light">
+                  <%= link_to about_path do %>
+                    About
+                  <% end %>
+                </li>
+                <li class="nav-item nav-link text-light">
+                  <%= link_to new_user_registration_path do %>
+                    Sign up
+                  <% end %>
+                </li>
+                <li class="nav-item nav-link text-light">
+                  <%= link_to  new_user_session_path do %>
+                    Log in
+                  <% end %>
+                </li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <% flash.each do |key, value| %>
+      <%=  content_tag(:p, value, class: key) %>
+    <% end %>
+      <%= yield %>
+    </main>
+    <footer>
+
+    </footer>
   </body>
 </html>

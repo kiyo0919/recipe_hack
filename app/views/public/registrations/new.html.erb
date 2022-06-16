@@ -1,0 +1,77 @@
+<div class="sign-up">
+  <h2>新規登録</h2>
+  <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+  <table class="sign-table">
+    <%= render "public/shared/error_messages", resource: resource %>
+    <tr>
+      <th class="table-head-last-name">お名前  姓</th>
+      <td class="table-body-last-name">
+        <%= f.text_field :last_name, autocomplete: 'off', placeholder: "  山田" %>
+      </td>
+      <th class="table-head-first-name">名</th>
+      <td class="table-body-first-name">
+        <%= f.text_field :first_name, autocomplete: 'off', placeholder: "  太郎" %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head-last-name">フリガナ  セイ</th>
+      <td class="table-body-last-name">
+        <%= f.text_field :last_name_kana, autocomplete: 'off', placeholder: "  山田" %>
+      </td>
+      <th class="table-head-first-name">メイ</th>
+      <td class="table-body-first-name">
+        <%= f.text_field :first_name_kana, autocomplete: 'off', placeholder: "  太郎" %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">ニックネーム</th>
+      <td class="table-body">
+          <%= f.text_field :nick_name, autocomplete: 'off', placeholder: "  他ユーザーに表示されます" %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">メールアドレス</th>
+      <td class="table-body">
+        <%= f.email_field :email, autocomplete: "email", autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">郵便番号</th>
+      <td class="table-body">
+        <%= f.text_field :postal_code, autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">住所</th>
+      <td class="table-body">
+        <%= f.text_field :address, autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">電話番号</th>
+      <td class="table-body">
+        <%= f.text_field :phone_number, autocomplete: 'off' %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">生年月日</th>
+      <td class="table-body">
+        <%= f.date_select :birth_date, autocomplete: 'off', use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1) %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">パスワード(6文字以上)</th>
+      <td class="table-body">
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </td>
+    </tr>
+    <tr>
+      <th class="table-head">パスワード(確認用)</th>
+      <td class="table-body">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </td>
+    </tr>
+    <td colspan="2"><%= f.submit "新規登録する", class:"sign-btn" %></td>
+  </table>
+  <% end %>
+</div>
