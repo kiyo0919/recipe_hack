@@ -25,7 +25,7 @@
               <div class="search">
                 <div class="search-form">
                   <p>検索</p>
-                  <%= f.text_field :word, placeholder: "  キーワード" %>
+                  <%= f.text_field :word, placeholder: "  キーワード", class:"form-control" %>
                 </div>
                 <div class="radio-btn">
                   <span>レシピを探す</span>
@@ -40,7 +40,7 @@
             <% end %>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars fa-2x"></i>
+            <i class="fas fa-bars icon-size"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <% if user_signed_in? %>

@@ -1,6 +1,10 @@
 <div class="nested-fields">
-  <%= f.number_field :step, min:1, value: 1 %>
-  <%= f.file_field :step_image, accept: "image/*", class:"step-img" %>
-  <%= f.text_area :description, placeholder: " 説明(60字以内)" %>
-  <%= link_to_remove_association "削除", f, class:"ingredient-delete-btn" %>
+  <div class="step-num form-inline">
+    <%= f.number_field :step, min:1, value: 1, class:"text-line"%>
+    <%= f.file_field :step_image, accept: "image/*", class:"step-img" %>
+  </div>
+  <div class="form-inline">
+    <%= f.text_area :description, placeholder: " 説明(60字以内)", class:"text-line" %>
+    <%= link_to_remove_association "削除", f, class:"step-delete-btn" %>
+  </div>
 </div>

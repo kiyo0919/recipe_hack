@@ -5,18 +5,18 @@
         <h5><strong>ストック食材を登録する</strong></h5>
           <%= form_with model: @stock_food, url: user_stock_foods_path(@user), local:true do |f| %>
             <div class="form-group row">
-              <%= f.label "ストック食品", class: "col-md-4 col-form-label" %>
-              <%= f.text_field :name, placeholder: "例:大根", class: "form-control col-md-5" %>
+              <%= f.label "ストック食品", class: "col-md-3 col-form-label" %>
+              <%= f.text_field :name, placeholder: "例:大根", class: "form-control col-md-4" %>
             </div>
             <div class="form-group row">
-              <%= f.label "消費期限", class: 'col-md-4 control-label' %>
-              <%= f.date_field :expiration_date, class: 'form-control col-md-5' %>
+              <%= f.label "消費期限", class: 'col-md-3 control-label' %>
+              <%= f.date_field :expiration_date, class: 'form-control col-md-4' %>
             </div>
             <%= f.submit '登録する', class: "btn btn-success" %>
           <% end %>
       </div>
     </div>
-    <div class="col-md-6 offset-md-1">
+    <div class="col-md-6">
       <table class="table stock-table">
         <thead>
           <tr>
