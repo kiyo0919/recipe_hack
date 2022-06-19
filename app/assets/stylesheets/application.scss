@@ -674,16 +674,41 @@ textarea#recipe_comment_comment {
 
 // ストック一覧
 .stock-food {
+  background-color: #f7f6f5;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
   h5 {
     font-size: 2rem;
     margin: 2rem;
+    text-align: center;
   }
-  font-size: 1.4rem;
-  font-weight: bold;
+  .stock-form {
+    margin: 0 auto;
+    font-size: 1.7rem;
+    th, td {
+      padding: 1rem;
+    }
+    th {
+      width: 40%;
+      text-align: center;
+    }
+    td {
+      width: 60%;
+    }
+  }
 }
-
+.stock-foods {
+  background-color: #f7f6f5;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
 .stock-table {
-  margin: 2rem;
-  font-size: 1.4rem;
-  background-color: #f7f6f5;;
+  font-size: 1.7rem;
+  th, td {
+    padding: 1rem;
+    text-align: center;
+  }
+  td {
+    width: 25%;
+  }
 }
