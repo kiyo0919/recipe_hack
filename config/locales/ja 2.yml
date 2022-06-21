@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      recipe: レシピ
+      genre: ジャンル
+      stock_food: ストック食材
+    attributes:
+      recipe:
+        title: タイトル
+        catch_phrase: キャッチフレーズ
+        genre: ジャンル名
+      stock_food:
+        name: 食材名
