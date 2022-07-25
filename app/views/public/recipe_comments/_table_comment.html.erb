@@ -1,9 +1,14 @@
-<table class="table">
+<div class="comments">
+  <table class="table">
   <tbody>
     <% recipe_comments.each do |recipe_comment| %>
       <tr>
         <td><%= image_tag recipe_comment.user.get_profile_image(30,30), class: "rounded-circle" %></td>
-        <td><%= recipe_comment.user.nick_name %></td>
+        <td>
+          <%= link_to user_path(recipe_comment.user.id) do %>
+            <%= recipe_comment.user.nick_name %>
+          <% end %>
+        </td>
         <td><%= recipe_comment.comment %></td>
         <td>
           <% if recipe_comment.user == current_user %>
@@ -14,3 +19,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

@@ -1,6 +1,7 @@
 <%= render "layouts/error_messages", model: @recipe %>
   <%= form_with model: @recipe, local: true do |f| %>
   <div class="recipe-new">
+    <h2>レシピ登録</h2>
     <div class="new-title">
       <p>タイトル</p>
       <%= f.text_field :title,  placeholder: " 例:だし巻き卵 (17文字以内)", autocomplete: 'off', class:"text-line" %>
